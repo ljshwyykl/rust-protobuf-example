@@ -1,13 +1,8 @@
-
-## install 
+# rust protobuf example
+## run 
 ```
-brew install protobuf
-cargo install protobuf-codegen
+cargo run
 ```
-
 
 
-## Generate .rs files:
-```
-protoc --rust_out . message.proto
-```
+`

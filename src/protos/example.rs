@@ -17,60 +17,60 @@
 #![allow(trivial_casts)]
 #![allow(unused_imports)]
 #![allow(unused_results)]
-//! Generated file from `src/message.proto`
+//! Generated file from `example.proto`
 
 /// Generated files are compatible only with the same version
 /// of protobuf runtime.
 // const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_2_25_2;
 
 #[derive(PartialEq,Clone,Default)]
-pub struct HelloWorld {
+pub struct HelloRequest {
     // message fields
-    pub msg: ::std::string::String,
+    pub name: ::std::string::String,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
     pub cached_size: ::protobuf::CachedSize,
 }
 
-impl<'a> ::std::default::Default for &'a HelloWorld {
-    fn default() -> &'a HelloWorld {
-        <HelloWorld as ::protobuf::Message>::default_instance()
+impl<'a> ::std::default::Default for &'a HelloRequest {
+    fn default() -> &'a HelloRequest {
+        <HelloRequest as ::protobuf::Message>::default_instance()
     }
 }
 
-impl HelloWorld {
-    pub fn new() -> HelloWorld {
+impl HelloRequest {
+    pub fn new() -> HelloRequest {
         ::std::default::Default::default()
     }
 
-    // string msg = 1;
+    // string name = 1;
 
 
-    pub fn get_msg(&self) -> &str {
-        &self.msg
+    pub fn get_name(&self) -> &str {
+        &self.name
     }
-    pub fn clear_msg(&mut self) {
-        self.msg.clear();
+    pub fn clear_name(&mut self) {
+        self.name.clear();
     }
 
     // Param is passed by value, moved
-    pub fn set_msg(&mut self, v: ::std::string::String) {
-        self.msg = v;
+    pub fn set_name(&mut self, v: ::std::string::String) {
+        self.name = v;
     }
 
     // Mutable pointer to the field.
     // If field is not initialized, it is initialized with default value first.
-    pub fn mut_msg(&mut self) -> &mut ::std::string::String {
-        &mut self.msg
+    pub fn mut_name(&mut self) -> &mut ::std::string::String {
+        &mut self.name
     }
 
     // Take field
-    pub fn take_msg(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.msg, ::std::string::String::new())
+    pub fn take_name(&mut self) -> ::std::string::String {
+        ::std::mem::replace(&mut self.name, ::std::string::String::new())
     }
 }
 
-impl ::protobuf::Message for HelloWorld {
+impl ::protobuf::Message for HelloRequest {
     fn is_initialized(&self) -> bool {
         true
     }
@@ -80,7 +80,7 @@ impl ::protobuf::Message for HelloWorld {
             let (field_number, wire_type) = is.read_tag_unpack()?;
             match field_number {
                 1 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.msg)?;
+                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.name)?;
                 },
                 _ => {
                     ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
@@ -94,8 +94,8 @@ impl ::protobuf::Message for HelloWorld {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
-        if !self.msg.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.msg);
+        if !self.name.is_empty() {
+            my_size += ::protobuf::rt::string_size(1, &self.name);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         self.cached_size.set(my_size);
@@ -103,8 +103,8 @@ impl ::protobuf::Message for HelloWorld {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::ProtobufResult<()> {
-        if !self.msg.is_empty() {
-            os.write_string(1, &self.msg)?;
+        if !self.name.is_empty() {
+            os.write_string(1, &self.name)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -136,8 +136,8 @@ impl ::protobuf::Message for HelloWorld {
         Self::descriptor_static()
     }
 
-    fn new() -> HelloWorld {
-        HelloWorld::new()
+    fn new() -> HelloRequest {
+        HelloRequest::new()
     }
 
     fn descriptor_static() -> &'static ::protobuf::reflect::MessageDescriptor {
@@ -145,50 +145,46 @@ impl ::protobuf::Message for HelloWorld {
         descriptor.get(|| {
             let mut fields = ::std::vec::Vec::new();
             fields.push(::protobuf::reflect::accessor::make_simple_field_accessor::<_, ::protobuf::types::ProtobufTypeString>(
-                "msg",
-                |m: &HelloWorld| { &m.msg },
-                |m: &mut HelloWorld| { &mut m.msg },
+                "name",
+                |m: &HelloRequest| { &m.name },
+                |m: &mut HelloRequest| { &mut m.name },
             ));
-            ::protobuf::reflect::MessageDescriptor::new_pb_name::<HelloWorld>(
-                "HelloWorld",
+            ::protobuf::reflect::MessageDescriptor::new_pb_name::<HelloRequest>(
+                "HelloRequest",
                 fields,
                 file_descriptor_proto()
             )
         })
     }
 
-    fn default_instance() -> &'static HelloWorld {
-        static instance: ::protobuf::rt::LazyV2<HelloWorld> = ::protobuf::rt::LazyV2::INIT;
-        instance.get(HelloWorld::new)
+    fn default_instance() -> &'static HelloRequest {
+        static instance: ::protobuf::rt::LazyV2<HelloRequest> = ::protobuf::rt::LazyV2::INIT;
+        instance.get(HelloRequest::new)
     }
 }
 
-impl ::protobuf::Clear for HelloWorld {
+impl ::protobuf::Clear for HelloRequest {
     fn clear(&mut self) {
-        self.msg.clear();
+        self.name.clear();
         self.unknown_fields.clear();
     }
 }
 
-impl ::std::fmt::Debug for HelloWorld {
+impl ::std::fmt::Debug for HelloRequest {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
     }
 }
 
-impl ::protobuf::reflect::ProtobufValue for HelloWorld {
+impl ::protobuf::reflect::ProtobufValue for HelloRequest {
     fn as_ref(&self) -> ::protobuf::reflect::ReflectValueRef {
         ::protobuf::reflect::ReflectValueRef::Message(self)
     }
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x11src/message.proto\"\x1e\n\nHelloWorld\x12\x10\n\x03msg\x18\x01\x20\
-    \x01(\tR\x03msgJa\n\x06\x12\x04\0\0\x04\x01\n\x08\n\x01\x0c\x12\x03\0\0\
-    \x12\n\n\n\x02\x04\0\x12\x04\x02\0\x04\x01\n\n\n\x03\x04\0\x01\x12\x03\
-    \x02\x08\x12\n\x0b\n\x04\x04\0\x02\0\x12\x03\x03\x02\x11\n\x0c\n\x05\x04\
-    \0\x02\0\x05\x12\x03\x03\x02\x08\n\x0c\n\x05\x04\0\x02\0\x01\x12\x03\x03\
-    \t\x0c\n\x0c\n\x05\x04\0\x02\0\x03\x12\x03\x03\x0f\x10b\x06proto3\
+    \n\rexample.proto\"\"\n\x0cHelloRequest\x12\x12\n\x04name\x18\x01\x20\
+    \x01(\tR\x04nameb\x06proto3\
 ";
 
 static file_descriptor_proto_lazy: ::protobuf::rt::LazyV2<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::rt::LazyV2::INIT;
